@@ -1,49 +1,11 @@
-HELP.md
-.gradle
-build/
-!backend/gradle/wrapper/gradle-wrapper.jar
-!src/main/resources
-!**/src/test/**
-application-*.yml
-
-### STS ###
-.apt_generated
-.classpath
-.factorypath
-.project
-.settings
-.springBeans
-.sts4-cache
-
-### IntelliJ IDEA ###
-.idea
-*.iws
-*.iml
-*.ipr
-out/
-
-### NetBeans ###
-/nbproject/private/
-/nbbuild/
-/dist/
-/nbdist/
-/.nb-gradle/
-
-### VS Code ###
-.vscode/
-
-# General
 .DS_Store
-.AppleDouble
-.LSOverride
-
 node_modules
 /dist
 
 # local env files
+.env
 .env.local
 .env.*.local
-/src/awsConfig.js
 
 # Log files
 npm-debug.log*
@@ -51,6 +13,7 @@ yarn-debug.log*
 yarn-error.log*
 
 # Editor directories and files
+.idea
 .vscode
 *.suo
 *.ntvs*
