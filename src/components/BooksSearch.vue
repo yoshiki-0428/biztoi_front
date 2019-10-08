@@ -8,8 +8,6 @@
           :search-input.sync="word"
           label="書籍検索キーワード"
           placeholder="Search..."
-          rows="1"
-          row-height="15"
           no-filter
           hide-no-data
           item-text="title"
@@ -21,16 +19,8 @@
             <template>
               <!-- TODO 本画像を小さく、タイトルをわかりやすく表示する -->
               <!-- TODO クリックしたら本詳細画面に飛ばす -->
-              <!--
-              <v-list-item-icon>
-                <v-img :src="data.item.pictureUrl"/>
-              </v-list-item-icon>
-              -->
               <v-list-item-content>
                 <v-list-item-title v-html="data.item.title"></v-list-item-title>
-                <!--
-                <v-list-item-subtitle class="text-justify">{{data.item.detail}}</v-list-item-subtitle>
-                -->
               </v-list-item-content>
             </template>
           </template>
@@ -42,8 +32,8 @@
           return-object
           v-model="selected"
         ></v-select>
-        <v-card>
-          <v-card-text class="book-list" v-for="item in items" :key="item.id">
+        <v-card class=book-list v-for="item in items" :key="item.id">
+          <v-card-text>
             <div class="book-card">
               <div class="card-img">
                 <v-img :src="item.pictureUrl" />
@@ -121,5 +111,13 @@ export default {
 .card-body {
   font-size: 3vm;
   text-align: center;
+}
+.v-autocomplete__content.v-menu__content
+.v-card {
+  max-height: 150px;
+}
+ .book-list{
+  border-radius: 15px;
+  margin-bottom: 10px;
 }
 </style>
