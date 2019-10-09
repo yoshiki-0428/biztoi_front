@@ -1,7 +1,7 @@
 <template>
   <v-flex xs12 md12>
     <v-row>
-      <v-col cols="12" sm="6">
+      <v-col xs8 md8>
         <v-autocomplete
           :items="items"
           :loading="isLoading"
@@ -12,8 +12,9 @@
           hide-no-data
           item-text="title"
           item-value="title"
-          outlined
+          rounded
           clearable
+          outlined
         >
           <template v-slot:item="data">
             <template>
@@ -29,28 +30,17 @@
           :items="targets"
           label="絞り込み検索"
           outlined
+          rounded
           return-object
           v-model="selected"
         ></v-select>
-        <v-card class=book-list v-for="item in items" :key="item.id">
-          <v-card-text>
-            <div class="book-card">
-              <div class="card-img">
-                <v-img :src="item.pictureUrl" />
-              </div>
-              <div class="card-body">
-                <h5 class="card-title">{{ item.title }}</h5>
-                <p class="card-text">{{ item.authors }}</p>
-              </div>
-              <div>
-                <v-btn icon>
-                  <v-icon>mdi-star</v-icon>
-                </v-btn>
-                <v-divider class="mx-4"></v-divider>
-              </div>
-            </div>
-          </v-card-text>
-        </v-card>
+        <book-list
+          class="book-list"
+          v-for="item in items"
+          :key="item.id"
+          :BookData="item"
+        >
+        </book-list>
       </v-col>
     </v-row>
   </v-flex>
@@ -59,8 +49,9 @@
 <script>
 import Book from "../model/Book";
 import _ from "lodash";
-
+import BookList from "./BookList";
 export default {
+  components: { BookList },
   data() {
     return {
       word: "",
@@ -85,7 +76,7 @@ export default {
     getResult() {
       if (this.word.length !== 0) {
         this.$googleBookApi
-          .getBooks(this.word)
+          .getBooksTitle(this.word)
           .then(res => {
             this.items = res.data.items.map(item => {
               return new Book(item.volumeInfo);
@@ -103,21 +94,7 @@ export default {
 </script>
 
 <style scoped>
-.card-img {
-  width: 30%;
-  text-align: center;
-  margin: 0 auto;
-}
-.card-body {
-  font-size: 3vm;
-  text-align: center;
-}
-.v-autocomplete__content.v-menu__content
-.v-card {
+.v-autocomplete__content.v-menu__content .v-card {
   max-height: 150px;
-}
- .book-list{
-  border-radius: 15px;
-  margin-bottom: 10px;
 }
 </style>

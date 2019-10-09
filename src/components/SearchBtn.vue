@@ -1,13 +1,13 @@
 <template>
   <transition name="fade">
-    <v-row justify="center">
-      <v-dialog v-model="dialog" fullscreen v-scroll>
+    <v-row justify="center" md12 xs12>
+      <v-dialog v-model="dialog">
         <template v-slot:activator="{ on }">
           <v-btn icon v-on="on">
             <v-icon>mdi-book-search</v-icon>
           </v-btn>
         </template>
-        <v-card>
+        <v-card height="500px" md10 xs10>
           <v-btn icon color="black" @click="dialog = false">
             <v-icon>mdi-close</v-icon>
           </v-btn>
