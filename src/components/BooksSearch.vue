@@ -11,10 +11,11 @@
           no-filter
           hide-no-data
           item-text="title"
-          item-value="title"
+          prepend-inner-icon="mdi-database-search"
           rounded
           clearable
           outlined
+          hide-selected
         >
           <template v-slot:item="data">
             <template>
@@ -56,8 +57,8 @@ export default {
     return {
       word: "",
       items: [],
-      selected: "all",
-      targets: ["all", "title", "author"],
+      selected: "title",
+      targets: ["title", "author"],
       isLoading: false
     };
   },
@@ -73,10 +74,23 @@ export default {
     this.debouncedGetResult = _.debounce(this.getResult, 400);
   },
   methods: {
-    getResult() {
-      if (this.word.length !== 0) {
+    getResult: function() {
+      if (this.word.length !== 0 && this.selected === "title") {
         this.$googleBookApi
           .getBooksTitle(this.word)
+          .then(res => {
+            this.items = res.data.items.map(item => {
+              return new Book(item.volumeInfo);
+            });
+            this.isLoading = false;
+          })
+          .catch(err => {
+            this.isLoading = false;
+            console.log(err.response);
+          });
+      } else {
+        this.$googleBookApi
+          .getBooksAuthor(this.word)
           .then(res => {
             this.items = res.data.items.map(item => {
               return new Book(item.volumeInfo);
