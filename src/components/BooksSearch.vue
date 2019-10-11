@@ -19,8 +19,6 @@
         >
           <template v-slot:item="data">
             <template>
-              <!-- TODO 本画像を小さく、タイトルをわかりやすく表示する -->
-              <!-- TODO クリックしたら本詳細画面に飛ばす -->
               <v-list-item-content>
                 <v-list-item-title v-html="data.item.title"></v-list-item-title>
               </v-list-item-content>
@@ -35,13 +33,13 @@
           return-object
           v-model="selected"
         ></v-select>
-        <book-list
+        <book-details
           class="book-list"
           v-for="item in items"
           :key="item.id"
-          :BookData="item"
+          :book="item"
         >
-        </book-list>
+        </book-details>
       </v-col>
     </v-row>
   </v-flex>
@@ -50,9 +48,9 @@
 <script>
 import Book from "../model/Book";
 import _ from "lodash";
-import BookList from "./BookList";
+import BookDetails from "./BookDetail";
 export default {
-  components: { BookList },
+  components: {BookDetails},
   data() {
     return {
       word: "",
@@ -74,23 +72,10 @@ export default {
     this.debouncedGetResult = _.debounce(this.getResult, 400);
   },
   methods: {
-    getResult: function() {
-      if (this.word.length !== 0 && this.selected === "title") {
+    getResult() {
+      if (this.word.length !== 0) {
         this.$googleBookApi
-          .getBooksTitle(this.word)
-          .then(res => {
-            this.items = res.data.items.map(item => {
-              return new Book(item.volumeInfo);
-            });
-            this.isLoading = false;
-          })
-          .catch(err => {
-            this.isLoading = false;
-            console.log(err.response);
-          });
-      } else {
-        this.$googleBookApi
-          .getBooksAuthor(this.word)
+          .getBooks(this.selected, this.word)
           .then(res => {
             this.items = res.data.items.map(item => {
               return new Book(item.volumeInfo);
@@ -104,7 +89,7 @@ export default {
       }
     }
   }
-};
+}
 </script>
 
 <style scoped>

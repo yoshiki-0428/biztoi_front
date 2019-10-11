@@ -7,7 +7,7 @@
             <v-icon>mdi-book-search</v-icon>
           </v-btn>
         </template>
-        <v-card height="500px" md10 xs10>
+        <v-card height="5000px" md10 xs10>
           <v-btn icon color="black" @click="dialog = false">
             <v-icon>mdi-close</v-icon>
           </v-btn>
