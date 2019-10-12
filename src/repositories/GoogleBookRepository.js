@@ -1,10 +1,10 @@
-import { googleApi } from "../plugins/Repository";
+import { googleApi } from "../plugins/Repository"
 
 function getResource(searchType, word) {
   if (searchType === "author") {
-    return `inauthor:${word}`;
+    return `inauthor:${word}`
   } else if (searchType === "title") {
-    return `intitle:${word}`;
+    return `intitle:${word}`
   }
 }
 
@@ -17,6 +17,6 @@ export default {
         maxResults: 20,
         orderBy: "relevance"
       }
-    });
+    })
   },
-};
+}

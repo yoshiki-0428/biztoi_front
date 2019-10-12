@@ -35,9 +35,9 @@ export default {
           link: ""
         }
       ]
-    };
+    }
   }
-};
+}
 </script>
 
 <style scoped>

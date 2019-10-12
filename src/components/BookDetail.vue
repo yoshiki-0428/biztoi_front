@@ -24,7 +24,7 @@
 </template>
 
 <script>
-import Book from "../model/Book";
+import Book from "../model/Book"
 
 export default {
   props: {

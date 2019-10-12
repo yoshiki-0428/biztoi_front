@@ -40,7 +40,7 @@
 </template>
 
 <script>
-import SearchBtn from "./SearchBtn";
+import SearchBtn from "./SearchBtn"
 export default {
   components: { SearchBtn },
   data: function() {
@@ -62,9 +62,9 @@ export default {
           link: "/account"
         }
       ],
-    };
+    }
   }
-};
+}
 </script>
 
 <style scoped>
