@@ -8,6 +8,7 @@ class Book {
     this.detail = volumeInfo.description;
     this.linkUrl = volumeInfo.infoLink;
     this.authors = volumeInfo.authors;
+    this.category = volumeInfo.categories;
   }
 }
 
