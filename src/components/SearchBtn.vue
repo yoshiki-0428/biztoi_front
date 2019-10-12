@@ -19,13 +19,13 @@
 </template>
 
 <script>
-import BooksSearch from "./BooksSearch";
+import BooksSearch from "./BooksSearch"
 export default {
   components: { BooksSearch },
   data() {
     return {
       dialog: false
-    };
+    }
   }
-};
+}
 </script>

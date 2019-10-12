@@ -1,8 +1,8 @@
-import { apiAxios } from "../plugins/Repository";
+import { apiAxios } from "../plugins/Repository"
 
-const resource = "/users";
+const resource = "/users"
 export default {
   get() {
-    return apiAxios.get(`${resource}/me`);
+    return apiAxios.get(`${resource}/me`)
   }
-};
+}

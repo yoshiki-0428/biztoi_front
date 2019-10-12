@@ -46,9 +46,9 @@
 </template>
 
 <script>
-import Book from "../model/Book";
-import _ from "lodash";
-import BookDetails from "./BookDetail";
+import Book from "../model/Book"
+import _ from "lodash"
+import BookDetails from "./BookDetail"
 export default {
   components: {BookDetails},
   data() {
@@ -58,18 +58,18 @@ export default {
       selected: "title",
       targets: ["title", "author"],
       isLoading: false
-    };
+    }
   },
   watch: {
     word() {
       if (this.word) {
-        this.debouncedGetResult();
-        this.isLoading = true;
+        this.debouncedGetResult()
+        this.isLoading = true
       }
     }
   },
   created() {
-    this.debouncedGetResult = _.debounce(this.getResult, 400);
+    this.debouncedGetResult = _.debounce(this.getResult, 400)
   },
   methods: {
     getResult() {
@@ -78,14 +78,14 @@ export default {
           .getBooks(this.selected, this.word)
           .then(res => {
             this.items = res.data.items.map(item => {
-              return new Book(item.volumeInfo);
-            });
-            this.isLoading = false;
+              return new Book(item.volumeInfo)
+            })
+            this.isLoading = false
           })
           .catch(err => {
-            this.isLoading = false;
-            console.log(err.response);
-          });
+            this.isLoading = false
+            console.log(err.response)
+          })
       }
     }
   }

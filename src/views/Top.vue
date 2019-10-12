@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import BookSearch from "../components/BooksSearch";
+import BookSearch from "../components/BooksSearch"
 
 export default {
   components: {
@@ -16,26 +16,26 @@ export default {
   data: () => {
     return {
       userInfo: Object
-    };
+    }
   },
   created() {
-    const code = this.$route.query.code;
+    const code = this.$route.query.code
     if (code) {
-      this.getToken(code);
+      this.getToken(code)
     }
   },
   methods: {
     getToken(code) {
       this.$authApi.getTokenCode(code).then(result => {
-        localStorage.setItem("idToken", result.data);
-        location.href = "/top";
-      });
+        localStorage.setItem("idToken", result.data)
+        location.href = "/top"
+      })
     },
     async getUser() {
       this.userInfo = await this.$usersApi.get().then(result => {
-        return result.data;
-      });
+        return result.data
+      })
     }
   }
-};
+}
 </script>
