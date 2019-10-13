@@ -3,11 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "serve": "vue-cli-service serve --port 3000 --mode dev",
-    "build": "vue-cli-service build --mode production",
+    "serve": "yarn openapi && vue-cli-service serve --port 3000 --mode dev",
+    "build": "yarn openapi && vue-cli-service build --mode production",
     "lint": "npm run lint",
     "test:unit": "vue-cli-service test:unit",
-    "openapi-generate-biztoi": "openapi-generator generate -i openapi/petstore.yaml -g typescript-axios -o src/openapi"
+    "openapi": "openapi-generator generate -i openapi/reference/biztoi/openapi.yaml -g typescript-axios -o src/openapi"
   },
   "dependencies": {
     "amazon-cognito-identity-js": "^3.0.15",

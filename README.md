@@ -7,6 +7,17 @@
 - [vuetify](https://vuetifyjs.com/ja/components/api-explorer): CSSフレームワーク
 
 ## Project setup
+
+[submodule プロジェクト](https://github.com/yoshiki-0428/biztoi_openapi)を追加する(承認必要)
+```
+# 初期化
+git submodule init
+
+# 更新
+git submodule update --remote
+```
+
+
 ```
 yarn install
 ```
