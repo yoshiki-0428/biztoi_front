@@ -69,13 +69,13 @@
 </template>
 
 <script>
-import LoginButton from "./LoginButton";
+import LoginButton from "./LoginButton"
 
 export default {
   components: {
     LoginButton
   }
-};
+}
 </script>
 
 <style scoped>

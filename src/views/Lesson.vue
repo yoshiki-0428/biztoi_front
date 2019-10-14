@@ -6,11 +6,11 @@
 </template>
 
 <script>
-import BooksSearch from "../components/BooksSearch";
+import BooksSearch from "../components/BooksSearch"
 
 export default {
   components: {
     BooksSearch
   }
-};
+}
 </script>

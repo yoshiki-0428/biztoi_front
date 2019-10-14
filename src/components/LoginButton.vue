@@ -15,7 +15,7 @@ export default {
   data: () => {
     return {
       url: `${process.env.VUE_APP_API_BASE_URL}auth/login?redirect_uri=${window.location.origin}/top`
-    };
+    }
   }
-};
+}
 </script>
