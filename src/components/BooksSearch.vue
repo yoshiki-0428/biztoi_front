@@ -2,21 +2,21 @@
   <v-flex xs12 md12>
     <v-row>
       <v-col xs8 md8>
-        <v-autocomplete
-          :items="items"
-          :loading="isLoading"
-          :search-input.sync="word"
-          label="書籍検索キーワード"
-          placeholder="Search..."
-          no-filter
-          hide-no-data
-          item-text="title"
-          prepend-inner-icon="mdi-database-search"
-          rounded
-          clearable
-          outlined
-          hide-selected
-        >
+          <v-autocomplete
+                  :items="items"
+                  :loading="isLoading"
+                  :search-input.sync="word"
+                  label="書籍検索キーワード"
+                  placeholder="Search..."
+                  no-filter
+                  hide-no-data
+                  item-text="title"
+                  prepend-inner-icon="mdi-database-search"
+                  rounded
+                  clearable
+                  outlined
+                  hide-selected
+          >
           <template v-slot:item="data">
             <template>
               <v-list-item-content>

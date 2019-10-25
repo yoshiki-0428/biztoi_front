@@ -43,7 +43,7 @@
 import SearchBtn from "./SearchBtn"
 export default {
   components: { SearchBtn },
-  data: function() {
+  data() {
     return {
       menu: [
         {

@@ -10,22 +10,31 @@ export default new Router({
     {
       path: "/",
       name: "home",
-      component: () => import("./views/Home.vue")
+      component: () => import(/* webpackChunkName: "home" */"./views/Home.vue")
     },
     {
       path: "/top",
       name: "top",
-      component: () => import("./views/Top.vue")
+      component: () => import(/* webpackChunkName: "top" */"./views/Top.vue")
     },
     {
       path: "/account",
       name: "account",
-      component: () => import("./views/Account.vue")
+      component: () => import(/* webpackChunkName: "account" */"./views/Account.vue")
     },
     {
       path: "/lesson",
       name: "lesson",
-      component: () => import("./views/Lesson.vue")
+      component: () => import(/* webpackChunkName: "lesson" */"./views/Lesson.vue")
+    },
+    {
+      path: "/favorite",
+      name: "favorite",
+      component: () => import(/* webpackChunkName: "lesson" */"./views/Favorite.vue")
+    },
+    {
+      path: "*",
+      redirect: "/"
     }
   ]
 });

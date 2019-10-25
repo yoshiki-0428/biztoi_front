@@ -1,17 +1,20 @@
 <template>
   <v-container>
-    <book-search />
     <div @click="getUser">Get User</div>
     <div>{{ userInfo }}</div>
+    <best />
+    <good-rank />
   </v-container>
 </template>
 
 <script>
-import BookSearch from "../components/BooksSearch"
+import Best from "../components/Best"
+import GoodRank from "../components/GoodRank"
 
 export default {
   components: {
-    BookSearch
+    Best,
+    GoodRank
   },
   data: () => {
     return {

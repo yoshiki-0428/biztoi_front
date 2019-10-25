@@ -6,11 +6,11 @@
           <v-img :src="book.pictureUrl" />
         </div>
         <div class="card-body">
-          <h5 class="card-title">{{ book.title }}</h5>
-          <p class="card-text">{{ book.authors }}</p>
-          <p class="card-text">{{ book.category }}</p>
-        </div>
-        <div>
+          <div class="body-text">
+            <h5 class="card-title">{{ book.title }}</h5>
+            <p class="card-text">{{ book.authors.join(" / ") }}</p>
+            <p class="card-text">{{ book.category.join(" / ")}}</p>
+          </div>
           <v-btn icon>
             <v-icon>mdi-star</v-icon>
           </v-btn>
@@ -18,7 +18,7 @@
             本の詳細へ
           </v-btn>
         </div>
-      </div>
+        </div>
     </v-card-text>
   </v-card>
 </template>
@@ -37,13 +37,19 @@ export default {
 </script>
 
 <style scoped>
+  .book-card{
+    display:flex;
+  }
 .card-img {
   width: 30%;
-  text-align: center;
-  margin: 0 auto;
+  margin-right: 1rem;
 }
 .card-body {
-  font-size: 3vm;
-  text-align: center;
+  display: block;
+  flex-direction: column;
 }
+  .body-text {
+    font-size: 3vm;
+    text-align: left;
+  }
 </style>

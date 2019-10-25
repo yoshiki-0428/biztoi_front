@@ -1,6 +1,6 @@
 <template>
   <transition name="fade">
-    <v-row justify="center" md12 xs12>
+    <v-row md12 xs12>
       <v-dialog v-model="dialog">
         <template v-slot:activator="{ on }">
           <v-btn icon v-on="on">
