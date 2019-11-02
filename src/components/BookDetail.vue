@@ -8,8 +8,8 @@
         <div class="card-body">
           <div class="body-text">
             <h5 class="card-title">{{ book.title }}</h5>
-            <p class="card-text">{{ book.authors.join(" / ") }}</p>
-            <p class="card-text">{{ book.category.join(" / ")}}</p>
+            <p class="card-text">{{ Author }}</p>
+            <p class="card-text">{{ book.category }}</p>
           </div>
           <v-btn icon>
             <v-icon>mdi-star</v-icon>
@@ -25,12 +25,23 @@
 
 <script>
 import Book from "../model/Book"
-
+import _ from "lodash"
 export default {
   props: {
     book: {
       type: Book,
       required: true
+    }
+  },
+  computed: {
+    Author() {
+      if (!_.isArray(this.book.authors)){
+        return console.log("著者が不明です！")
+      }
+      else if (_.size(this.book.authors) === 1) {
+        return this.book.authors[0]
+      } else
+        return this.book.authors.join()
     }
   }
 }
@@ -42,6 +53,7 @@ export default {
   }
 .card-img {
   width: 30%;
+  height: 10%;
   margin-right: 1rem;
 }
 .card-body {
