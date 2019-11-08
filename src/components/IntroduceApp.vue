@@ -11,8 +11,8 @@
             </v-card-title>
             <v-card-text class="subtitle-2 mt-10">
               <span>
-                <span>それはあなたにとって極上の体験</span><br />
-                <span>今しかできない体験を今すぐ手に入れよう</span>
+                <p>それはあなたにとって極上の体験</p>
+                <p>今しかできない体験を今すぐ手に入れよう</p>
               </span>
               <v-flex 12>
                 <login-button />
